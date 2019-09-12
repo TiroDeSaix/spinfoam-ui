@@ -16,33 +16,31 @@ const Topbar: React.FC = () => {
     )
 }
 
-interface ITopbar {
-    links: {
-        left:  {
-            Name: String,
-            Name: String,
-            Name: String,
-        }
-
-    }
-    
-}
 
 */
 
 /*
-    There is the option to hard code the ButtonGroups
 
-    <Topbar sticky={true} useProgress={true} />
+    
 
-    links: Array => Takes in list of objects that are computed into ButtonGroups
+<Topbar sticky={true} useProgress={true} />
+    
+Props:
+    sticky?: Boolean
+    leaveOnRest?: Boolean
+    useProgress?: Boolean
+    background: String
+    padding: Number
+    font?: String
+
+        Expose interpolated values and create variants based on the animation type, 
+        The value is passed down to the respective child of the ButtonGroup within
+   
+
+    
 */
 
-export default ({links}) => {
-    let btnGroups = links.map(btnGroup => {
-        
-    })
-
+export default () => {
     return (
         <Topbar>
             
@@ -51,9 +49,9 @@ export default ({links}) => {
 }
 
 const Topbar = styled(motion.div)`
-    width: 100%;
+    width: 100vw;
     height: 3em;
 
-    background: 
+    background: #C6AE82;
 
 `

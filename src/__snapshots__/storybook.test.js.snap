@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Button Default 1`] = `
+<div
+  className="sc-bdVaJa djUAVw"
+  style={Object {}}
+>
+   This is a Button 
+</div>
+`;
+
+exports[`Storyshots ButtonGroup Default 1`] = `
+<div
+  className="sc-bwzfXH cAPZKR"
+  style={Object {}}
+>
+   This is a Button 
+</div>
+`;
+
 exports[`Storyshots Container default 1`] = `
 <div
   className="sc-bdVaJa IhCnv"
@@ -7,6 +25,13 @@ exports[`Storyshots Container default 1`] = `
 >
    This is a quick container 
 </div>
+`;
+
+exports[`Storyshots Nav Default 1`] = `
+<div
+  className="sc-bxivhb gqcwEg"
+  style={Object {}}
+/>
 `;
 
 exports[`Storyshots Task Default 1`] = `
@@ -875,4 +900,11 @@ exports[`Storyshots TaskList withPinnedTasks 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`Storyshots Topbar Default 1`] = `
+<div
+  className="sc-bxivhb gqcwEg"
+  style={Object {}}
+/>
 `;

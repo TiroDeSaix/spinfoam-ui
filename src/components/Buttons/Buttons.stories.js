@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 import { Button } from "./Button"
 import ButtonGroup from "./ButtonGroup"
+import Dropdown from "./Dropdown"
 
 // Create an object for Default Props
 
@@ -14,3 +15,5 @@ storiesOf("ButtonGroup", module)
 storiesOf("Button", module)
     .add("Default", () => <Button> Default Button </Button>)
 
+storiesOf("Dropdown", module)
+    .add("Default", () => <Dropdown> </Dropdown>)

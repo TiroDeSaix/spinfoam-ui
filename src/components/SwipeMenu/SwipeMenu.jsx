@@ -6,22 +6,24 @@ import { motion } from "framer-motion"
 // 
 
 /*
-To Do: 
+To Do:
 
-Desc:
-
-Exmaple:
+Example: 
+    
+Desc: 
+    Menu that scrolls in and out of overflow
 
 Props: 
+
   
 
 */
 
 export default ({ children }) => {
-    return <Popover> {children} </Popover>
+    return <SwipeMenu> {children} </SwipeMenu>
 }
 
-export const Popover = styled(motion.div)`
+const SwipeMenu = styled(motion.div)`
     height: 10em;
     width: 10em;
     border: 1px solid black;

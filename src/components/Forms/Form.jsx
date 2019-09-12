@@ -2,26 +2,28 @@ import React from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
+import Container from "../Container/Container"
+
+
 // Add default props 
 // 
 
 /*
-To Do: 
-
 Desc:
 
-Exmaple:
-
 Props: 
-  
-
+    
 */
 
 export default ({ children }) => {
-    return <Popover> {children} </Popover>
+    return (
+        <Container> 
+            <Form> {children} </Form>       
+        </Container>
+    )
 }
 
-export const Popover = styled(motion.div)`
+export const Form = styled(motion.input)`
     height: 10em;
     width: 10em;
     border: 1px solid black;

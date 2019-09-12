@@ -7,6 +7,8 @@ import Sidebar from "./Sidebar"
 import ButtonGroup from "../Buttons/ButtonGroup"
 import { Button } from "../Buttons/Button"
 
+// In composition a "Nav" component extends from the Container component and implements 
+// responsiveness with the useMedia() hook
 
 // Create an object for Default Props
 

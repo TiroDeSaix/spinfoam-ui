@@ -6,11 +6,11 @@ import { motion } from "framer-motion"
 // 
 
 /*
-To Do: 
+To Do:
 
 Desc:
 
-Exmaple:
+Example:
 
 Props: 
   
@@ -18,10 +18,10 @@ Props:
 */
 
 export default ({ children }) => {
-    return <Popover> {children} </Popover>
+    return <Accordian> {children} </Accordian>
 }
 
-export const Popover = styled(motion.div)`
+const Accordian = styled(motion.div)`
     height: 10em;
     width: 10em;
     border: 1px solid black;

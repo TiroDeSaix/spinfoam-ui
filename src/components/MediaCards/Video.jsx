@@ -6,22 +6,21 @@ import { motion } from "framer-motion"
 // 
 
 /*
-To Do: 
+To Do:
+
+Example:
 
 Desc:
 
-Exmaple:
-
-Props: 
-  
+Props:    
 
 */
 
 export default ({ children }) => {
-    return <Popover> {children} </Popover>
+    return <VideoCard> {children} </VideoCard>
 }
 
-export const Popover = styled(motion.div)`
+const VideoCard = styled(motion.div)`
     height: 10em;
     width: 10em;
     border: 1px solid black;

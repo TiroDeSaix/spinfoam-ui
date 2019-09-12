@@ -8,11 +8,14 @@ import { system } from "styled-system"
 
     }
 }
+TO DO:
 
  - Will implement spacing props with styled-system
  - Will implement prop aliases
+Example:
+    <ButtonGroup links={links} align="left" gap={3} padding={2} direction="x"> 
 
-<ButtonGroup links={links} align="left" gap={3} padding={2} direction="x"> 
+Desc:
 
 Props: 
     links: Object

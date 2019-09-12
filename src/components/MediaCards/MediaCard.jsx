@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
@@ -6,22 +6,22 @@ import { motion } from "framer-motion"
 // 
 
 /*
-To Do: 
+To Do:
 
-Desc:
+Example:
 
-Exmaple:
+Desc: 
+    implement ProfileCard as an example
 
 Props: 
-  
 
 */
 
 export default ({ children }) => {
-    return <Popover> {children} </Popover>
+    return <MediaCard> {children} </MediaCard>
 }
 
-export const Popover = styled(motion.div)`
+const MediaCard = styled(motion.div)`
     height: 10em;
     width: 10em;
     border: 1px solid black;

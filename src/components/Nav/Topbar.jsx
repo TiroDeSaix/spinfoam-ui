@@ -20,11 +20,13 @@ const Topbar: React.FC = () => {
 */
 
 /*
-
+To Do:
     
-
-<Topbar sticky={true} useProgress={true} />
+Example: 
+    <Topbar sticky={true} useProgress={true} />
     
+Desc:
+
 Props:
     sticky?: Boolean
     leaveOnRest?: Boolean

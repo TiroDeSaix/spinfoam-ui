@@ -40,10 +40,10 @@ Props:
     
 */
 
-export default () => {
+export default ({children}) => {
     return (
         <Topbar>
-            
+            {children}
         </Topbar>
     )
 }

@@ -9,8 +9,7 @@ export default () => {
 }
 
 export const Button = styled(motion.div)`
-    width: 5em;
-    height: 3em;
+    flex: 1;
 
     background: tomato;
     color: black;

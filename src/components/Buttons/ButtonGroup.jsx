@@ -5,19 +5,14 @@ import { system } from "styled-system"
 /*
     interface ITopbar {
     links: {
-        left:  {
-            Name: String,
-            Name: String,
-            Name: String,
-        }
 
     }
-    
 }
 
-Will implement spacing props with system
+ - Will implement spacing props with styled-system
+ - Will implement prop aliases
 
-<ButtonGroup links={links} align="left" gap={3}> 
+<ButtonGroup links={links} align="left" gap={3} padding={2} direction="x"> 
 
 Props: 
     links: Object
@@ -25,17 +20,15 @@ Props:
     gap: Number
     padding: Number
     direction: String (as in "x" or "y")
-
 */
-export default () => {
+
+export default ({ children }) => {
     return (
-        <ButtonGroup> </ButtonGroup>
+        <ButtonGroup> { children } </ButtonGroup>
     )
 }
 
 export const ButtonGroup = styled(motion.div)`
    display: flex;
    flex: 1;
-
-
 `

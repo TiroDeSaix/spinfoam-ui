@@ -4,8 +4,9 @@ import { action } from '@storybook/addon-actions';
 
 import Topbar from "./Topbar"
 import Sidebar from "./Sidebar"
-
 import ButtonGroup from "../Buttons/ButtonGroup"
+import { Button } from "../Buttons/Button"
+
 
 // Create an object for Default Props
 

@@ -1,3 +1,9 @@
+/* 
+  styled-system's Prop Alias seems contrived
+  instead will implement aliases by passing down props
+  from an anon function to a returned styled component
+*/
+
 export default {
     colors: {
         black: '#000e1a',
@@ -6,6 +12,23 @@ export default {
         navy: '#004175',
       },
     sizes: {
-
+      
     },
+    Accordion: {
+      styleVariants: {
+
+      },
+      actionVariants: {
+
+      }
+    },
+    Button: {
+      actionVariants: {
+
+      },
+      motionVariants: {
+
+      }
+    },
+
 }

@@ -14,6 +14,9 @@ Desc:
     Menu that scrolls in and out of overflow
 
 Props: 
+    direction: String = "x" | "y"
+    gap: Number
+    
 
   
 

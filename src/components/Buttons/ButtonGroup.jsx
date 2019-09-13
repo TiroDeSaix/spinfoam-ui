@@ -1,7 +1,8 @@
 import React from "react"
 import styled from 'styled-components'
 import { motion } from "framer-motion"
-import { system } from "styled-system"
+import { grid } from "styled-system"
+
 /*
     interface ITopbar {
     links: {
@@ -9,6 +10,7 @@ import { system } from "styled-system"
     }
 }
 TO DO:
+    Implement the style-system sizes for font and height
 
  - Will implement spacing props with styled-system
  - Will implement prop aliases
@@ -20,18 +22,29 @@ Desc:
 Props: 
     links: Object
     align: String ("left" | "right" | "fill")
-    gap: Number
+    gapX: Number
     padding: Number
-    direction: String (as in "x" or "y")
+    direction: String ("x" | "y")
+    h: Number (height)
+    overflow?: String
+    
 */
 
-export default ({ children }) => {
+
+
+
+export default ({ children, gapX = [1, 3, 5]}) => {
     return (
-        <ButtonGroup> { children } </ButtonGroup>
+        <ButtonGroup gridColumnGap={gapX}> 
+             { children } 
+        </ButtonGroup>
     )
 }
 
 export const ButtonGroup = styled(motion.div)`
-   display: flex;
-   flex: 1;
+   display: inline-grid;
+
+   justify-content: center;
+   align-items: center;
+
 `

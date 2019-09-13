@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import Accordian from "./Accordian"
+import Accordion from "./Accordion"
 
 storiesOf('Accordian', module)
-  .add('Default', () => <Accordian/>)
+  .add('Default', () => <Accordion/>)

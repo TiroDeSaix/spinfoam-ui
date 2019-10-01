@@ -3,10 +3,16 @@ import styled from 'styled-components'
 import { motion } from "framer-motion"
 import { system } from "styled-system"
 
+import Container from "../Container/Container"
+import ButtonGroup from "../Buttons/ButtonGroup"
+import Button from "../Buttons/Button"
+
+
 import NavIcon from "./NavIcon"
 
 /*
 To Do:
+    "implements ButtonGroup w a Container?"
 
 Example:
 
@@ -29,6 +35,7 @@ const variants = {
 
 export default () => {
     return (
+        
        <Sidebar></Sidebar>
     )
 }

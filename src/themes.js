@@ -3,6 +3,8 @@
   instead will implement aliases by passing down props
   from an anon function to a returned styled component
 */
+import React, { useContext } from "react"
+
 
 export default {
     colors: {

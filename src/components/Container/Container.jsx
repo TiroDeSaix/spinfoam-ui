@@ -32,8 +32,6 @@ export default ({ children }) => {
 }
 
 const Container = styled(motion.div)`
-    height: 10em;
-    width: 10em;
     border: 1px solid black;
     display: flex;
     justify-content: center;

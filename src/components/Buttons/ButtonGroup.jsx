@@ -1,7 +1,9 @@
-import React from "react"
-import styled from 'styled-components'
-import { motion } from "framer-motion"
-import { grid } from "styled-system"
+import React, { useContext, Children, cloneElement } from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import theme from "../../themes"
+import Button from "./Button";
+import useMedia from "../../fx/useMedia"
 
 /*
     interface ITopbar {
@@ -10,41 +12,87 @@ import { grid } from "styled-system"
     }
 }
 TO DO:
-    Implement the style-system sizes for font and height
+    
+    Will add functionality for nested ButtonGroups (In the examples of Menus, Drop Downs, etc...)
+    Nested Button Groups will treat
 
- - Will implement spacing props with styled-system
- - Will implement prop aliases
 Example:
     <ButtonGroup links={links} align="left" gap={3} padding={2} direction="x"> 
 
-Desc:
+Desc: 
+     ButtonGroup simply creates a base range of the inner buttons' dimensions
+     and flex direction.
+     Used in:
+        Sidebar
+        Topbar
+
+The "gap" between child buttons will rely on the width/height of the outer
+container and use the "justify-content" attribute for spacing 
+
+How can width be specified based on width of children?
 
 Props: 
-    links: Object
-    align: String ("left" | "right" | "fill")
+    links: Array
+    justify: String ("left" | "right" | "fill")
+      Justify works mostly with nested Button Groups
+    
     gapX: Number
-    padding: Number
+    padding: Number [on a scale of tightness]
+
     direction: String ("x" | "y")
+
     h: Number (height)
-    overflow?: String
+    w: Number (width)
+      All top level Button Group containers should have specified dimensions 
+      If width or height is of type Array, call useMedia 
+
+    flex:
+      use minmax()?
     
 */
+////////////////////////////////////
+export const ButtonContext = React.createContext()
+////////////////////////////////////
 
+const defaultProps = {
 
-
-
-export default ({ children, gapX = [1, 3, 5]}) => {
-    return (
-        <ButtonGroup gridColumnGap={gapX}> 
-             { children } 
-        </ButtonGroup>
-    )
 }
 
-export const ButtonGroup = styled(motion.div)`
-   display: inline-grid;
+export default ({ children, 
+                  direction, 
+                  gap, 
+                  p, 
+                  justify = `center`, 
+                  w, 
+                  h,
+                  m,
+                  placing,
+                  flex,
+                }) => {
 
-   justify-content: center;
-   align-items: center;
+  const fd = direction == 'x' ? 'row' : direction == 'y' ? 'column' : null // Pass Defaults
+  const spacing = direction == 'x' ? `0 ${gap}` : direction == 'y' ? `${gap} 0` : `0 ${gap}` // Pass Defaults
+  
 
-`
+  //const 
+  // parse such that it can use a passed in unit value on a given scale even if an int is passed 
+
+  const baseStyles = {
+    display: `inline-flex`,
+    placeContent: placing,
+
+    padding: p,
+    width: w,
+    height: h,
+    margin: m,
+    flexDirection: fd,
+  }
+
+  return (
+    <ButtonContext.Provider value={{ spacing }}>
+      <motion.div style={{...baseStyles}}>
+        {children}
+      </motion.div>
+    </ButtonContext.Provider>
+  );
+};

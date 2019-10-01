@@ -1,6 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
+import Button from "../Buttons/Button"
+
+import useRadioList from "../../fx/useRadioList"
+
 
 // Add default props 
 // 
@@ -14,8 +18,11 @@ Desc:
     or simple UI Card Components. Data is filtered thru and general
     dimensions are set using the Container Component
 
-Example:
+Example: 
+    <Accordion> 
+        
 
+    </Accordion>
 
 Props: 
     title: String
@@ -26,23 +33,46 @@ Props:
     oneAtATime: Boolean (Keeps one open at a time)
     expandOnHover: Boolean
     gap: Number
+    nested?:
 
+Children:
     
-
 
 */
 
-export default ({ children }) => {
-    return <Accordian> {children} </Accordian>
+export default ({ children, data }) => {
+    /*
+    
+    */
+
+    const {toggle, newChildren} = useRadioList(children)
+    console.log(newChildren)
+    return  <Accordion> 
+                <div onClick={() => toggle(1)}>Ayeee</div>
+                {newChildren} 
+            </Accordion>
 }
 
-const Accordian = styled(motion.div)`
+const Accordion = styled(motion.div)`
     height: 10em;
     width: 10em;
     border: 1px solid black;
+
 `
 // extends or implements Layout and MediaCard/UICard
 // Children of
-const AccordianItem = ({title, isOpen, overlay}) => {
+const AccordionItem = ({id, title, isOpen, tabColor, children}) => {
+    return (
+        <Wrapper>
+            <Button bg={tabColor}></Button>
 
+            
+        </Wrapper>
+    )
 }
+
+const Wrapper = styled(motion.div)`
+    display: flex;
+    flex-direction: column;
+
+`

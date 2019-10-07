@@ -51,7 +51,7 @@ Props:
     
 */
 ////////////////////////////////////
-export const ButtonContext = React.createContext()
+export const ButtonContext = React.createContext({spacing: ""})
 ////////////////////////////////////
 
 const defaultProps = {

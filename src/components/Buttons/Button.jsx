@@ -30,19 +30,21 @@ Props:
     spacing should be declared with parent prop and passed down to margin
 
 */
-export default ({ text, link, bg, border }) => {
+export default ({ text, link, bg, border, shadow, defaultMargin }) => {
     // Spacing will be computed using some scaling 
     //const b = border == 'rounded' ? `` : br == 'circle' ? null : null // Defaults 
     const { spacing } = useContext(ButtonContext)
     
+    const bs = shadow ? `0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)` : null
 
     const baseStyles = {
         fontSize: `22px`,
         padding: `.5em`,
         // lineHeight
-        margin: spacing,
+        boxShadow: bs,
+        margin: spacing || defaultMargin,
         
-        border: `1px solid black`,
+        //border: `1px solid black`,
         textDecoration: 'none',
         letterSpacing: `1px`,
         textAlign: `center`,

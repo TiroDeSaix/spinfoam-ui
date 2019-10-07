@@ -18,12 +18,20 @@ const sampleNested =    <ButtonGroup w="100%" direction="y" p="1em" placing="spa
                             <ButtonGroup direction="y">{sampleButtons}</ButtonGroup>
                         </ButtonGroup>
 
+const shadowButtons =   <> 
+                            <Button text="ALPHA" shadow /> 
+                            <Button text="BRAVO" shadow />
+                            <Button text="CHARLIE" shadow />
+                            <Button text="KILO" shadow  />
+                        </>
+
 storiesOf("ButtonGroup", module)
     .add("Default", () => <ButtonGroup p="1em" direction="x" gap="1em">{sampleButtons}</ButtonGroup>)
     .add("Nested", () => <>{sampleNested}</>)
 
 storiesOf("Button", module)
     .add("Default", () => <Button> Default Button </Button>)
+    .add("With Box Shadow", () => <ButtonGroup p="1em" gap="1em">{shadowButtons}</ButtonGroup>)
 
 storiesOf("Dropdown", module)
     .add("Default", () => <Dropdown> </Dropdown>)

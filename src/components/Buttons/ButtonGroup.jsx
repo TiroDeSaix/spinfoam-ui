@@ -1,9 +1,10 @@
 import React, { useContext, Children, cloneElement } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import theme from "../../themes"
+import theme from "../../theme"
 import Button from "./Button";
 import useMedia from "../../fx/useMedia"
+import uuid from "uuid"
 
 /*
     interface ITopbar {
@@ -51,48 +52,66 @@ Props:
     
 */
 ////////////////////////////////////
-export const ButtonContext = React.createContext({spacing: ""})
+export const ButtonContext = React.createContext({buttons: []})
 ////////////////////////////////////
 
 const defaultProps = {
 
 }
 
-export default ({ children, 
-                  direction, 
-                  gap, 
-                  p, 
-                  justify = `center`, 
-                  w, 
-                  h,
-                  m,
-                  placing,
-                  flex,
-                }) => {
+export default (props) => {
 
-  const fd = direction == 'x' ? 'row' : direction == 'y' ? 'column' : null // Pass Defaults
-  const spacing = direction == 'x' ? `0 ${gap}` : direction == 'y' ? `${gap} 0` : `0 ${gap}` // Pass Defaults
+  if (props.connect) {
+    Children.map(children, (child, i) => {
+      let uid = uuid()
+      ButtonContext.buttons.push({button: child, isSelected: false, id: uid})
+      cloneElement(child, {id: uid})
+    })
+  }
+  
+
+  const fd = props.direction == 'x' ? 'row' : props.direction == 'y' ? 'column' : null // Pass Defaults
+  const spacing = props.direction == 'x' ? `0 ${props.gap}` : props.direction == 'y' ? `${props.gap} 0` : `0 ${props.gap}` // Pass Defaults
   
 
   //const 
   // parse such that it can use a passed in unit value on a given scale even if an int is passed 
 
-  const baseStyles = {
-    display: `inline-flex`,
-    placeContent: placing,
-
-    padding: p,
-    width: w,
-    height: h,
-    margin: m,
-    flexDirection: fd,
+  const custom = {
+    flexDirection: fd
   }
 
   return (
     <ButtonContext.Provider value={{ spacing }}>
-      <motion.div style={{...baseStyles}}>
-        {children}
-      </motion.div>
+      <ButtonGroup style={{...custom}} {...props}>
+        {props.children}
+      </ButtonGroup>
     </ButtonContext.Provider>
   );
 };
+
+const ButtonGroup = styled(motion.div)`
+  display: flex;
+  place-content: center stretch;
+  place-items: center center;
+  width: ${({w}) => w};
+  padding: ${({p}) => p};
+  transform: translateY(${({offset}) => offset});
+  background: ${({bg}) => bg}
+  height: 1em;
+  border: 1px solid black;
+  overflow: hidden;
+`
+
+/*
+<ButtonGroup>
+  <Button onClick={() => dispatch({type: 'add', dest: 'counter1', payload: 1 })}
+  <Button onClick={e => dispatch({type: 'add', dest: 'list3', payload: e.target.value})}
+
+</ButtonGroup>
+
+
+
+
+
+*/

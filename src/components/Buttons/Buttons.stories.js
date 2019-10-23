@@ -5,8 +5,17 @@ import { action } from '@storybook/addon-actions';
 import Button from "./Button"
 import ButtonGroup from "./ButtonGroup"
 import Dropdown from "./Dropdown"
+import Select from "./Select"
 
 // Create an object for Default Props
+
+
+const dropdownData = [
+    {link: "#", text: "English"},
+    {link: "#", text: "French"},
+    {link: "#", text: "Spanish"},
+    {link: "#", text: "Portugese"},
+]
 
 const sampleButtons =   <> 
                             <Button text="Alpha" /> 
@@ -25,6 +34,8 @@ const shadowButtons =   <>
                             <Button text="KILO" shadow  />
                         </>
 
+const options = ["English", "Spanish", "French", "German"]
+
 storiesOf("ButtonGroup", module)
     .add("Default", () => <ButtonGroup p="1em" direction="x" gap="1em">{sampleButtons}</ButtonGroup>)
     .add("Nested", () => <>{sampleNested}</>)
@@ -34,4 +45,7 @@ storiesOf("Button", module)
     .add("With Box Shadow", () => <ButtonGroup p="1em" gap="1em">{shadowButtons}</ButtonGroup>)
 
 storiesOf("Dropdown", module)
-    .add("Default", () => <Dropdown> </Dropdown>)
+    .add("Default", () => <Dropdown items={dropdownData} />)
+
+storiesOf("Select", module)
+    .add("Allow One", () => <Select options={options} />)

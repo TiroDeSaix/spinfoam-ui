@@ -46,6 +46,10 @@ body {
   background: #DAB785;
 }
 
+.scroll-parent {
+	scroll-snap-type: y mandatory;
+}
+
 html {
 	box-sizing: border-box;
   }

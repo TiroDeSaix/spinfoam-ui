@@ -1,6 +1,8 @@
-import React from "react"
+import React, { useContext } from "react"
 import { motion } from "framer-motion"
+import useMedia from "../../fx/useMedia"
 //import ButtonGroup from "../Buttons/ButtonGroup"
+import Dropdown from "../Buttons/Dropdown"
 
 // Will Convert to Typescript 
 
@@ -8,13 +10,11 @@ import { motion } from "framer-motion"
 /*
 const Topbar: React.FC = () => {
     return (
-    <>
-    </>
+        <>
+        </>
     
     )
 }
-
-
 */
 
 /*
@@ -38,7 +38,7 @@ Props:
     
 */
 
-export default ({children, bg, p, showProgress, sticky, h }) => {
+export default ({children, bg, p, showProgress, sticky, h, leaveOnRest }) => {
     
     const baseStyles = {
         background: bg,

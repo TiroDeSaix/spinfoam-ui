@@ -16,6 +16,10 @@ Desc:
 Props: 
     direction: String = "x" | "y"
     gap: Number
+    perspective: Boolean (customizes "closeness" of non focused items)
+    faded: Boolean 
+    pivot: Boolean
+
     
 
   

@@ -45,10 +45,9 @@ export default ({ children, data }) => {
     
     */
 
-    const {toggle, newChildren} = useRadioList(children)
+    const newChildren = useRadioList(children)
     console.log(newChildren)
     return  <Accordion> 
-                <div onClick={() => toggle(1)}>Ayeee</div>
                 {newChildren} 
             </Accordion>
 }
@@ -65,7 +64,6 @@ const AccordionItem = ({id, title, isOpen, tabColor, children}) => {
     return (
         <Wrapper>
             <Button bg={tabColor}></Button>
-
             
         </Wrapper>
     )

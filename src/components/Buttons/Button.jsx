@@ -1,6 +1,10 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import styled from "styled-components"
 import { ButtonContext } from "./ButtonGroup"
+import { dispatch } from "../../reducer"
+
+const {buttons} = useContext(ButtonContext)
 
 /*
 
@@ -30,35 +34,36 @@ Props:
     spacing should be declared with parent prop and passed down to margin
 
 */
-export default ({ text, link, bg, border, shadow, defaultMargin }) => {
+export default ({ text, link, bg, shadow, id}) => {
     // Spacing will be computed using some scaling 
     //const b = border == 'rounded' ? `` : br == 'circle' ? null : null // Defaults 
+    const [active, setActive] = useState(false)
     const { spacing } = useContext(ButtonContext)
     
     const bs = shadow ? `0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)` : null
 
     const baseStyles = {
-        fontSize: `22px`,
-        padding: `.5em`,
         // lineHeight
         boxShadow: bs,
-        margin: spacing || defaultMargin,
+        margin: spacing,
         
         //border: `1px solid black`,
-        textDecoration: 'none',
-        letterSpacing: `1px`,
-        textAlign: `center`,
-        textTransform: `none`,
-        color: `black`,
-        background: bg,
-        cursor: `pointer`,
-       
     }
-    
-    
+    /*
+    useEffect(() => {
+        console.log(active)
+    }, [active])
+    */
 
+    
     return (
-        <motion.a href={link} style={{...baseStyles}}> {text} </motion.a>
+        <Button     onClick={() => dispatch({type: "toggle", dest: id})} 
+                    href={link} 
+                    style={{...baseStyles}}
+                    isSelected={buttons.id.isSelected}
+        > 
+            {text} 
+        </Button>
     )
 }
 
@@ -86,4 +91,13 @@ background
 
 
 */
-
+const Button = styled(motion.a)`
+    font-size: 22px;
+    padding: .5em;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: none;
+    color: black;
+    background: ${({bg}) => bg}
+`

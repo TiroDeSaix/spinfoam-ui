@@ -21,11 +21,6 @@ Desc:
     positioning of this component, and sizing as well (full page or local)
 
 Props:
-    width: Number
-    isCollapsed: Boolean
-    border-left?: String
-    border-right?: String
-    padding?: Number 
 
 */
 
@@ -33,17 +28,13 @@ const variants = {
 
 }
 
-export default () => {
+export default ({w, bg, isCollapsed, p}) => {
     return (
-        
        <Sidebar></Sidebar>
     )
 }
 
 export const Sidebar = styled(motion.div)`
-   height: 100%;
-   width: 15em;
-   
-   background: #C6AE82;
+   height: 100vh;
 
 `

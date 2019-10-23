@@ -1,12 +1,12 @@
 import React, { Children, isValidElement, cloneElement, useState, useEffect, useCallback } from "react"
 
-//EXAMPLE:  const { toggle, newChildren } = useRadioList(children, allowMultiple=false)
+//EXAMPLE:  const newChildren = useRadioList(children, allowMultiple=false)
 
 export default (originalChildren, allowMultiple = true) => {
 //////////////////////////////////////////////////
 // Initialize radioList values
 
-  const [radioList, setRadioList] = useState(Array(originalChildren.length).fill(false))
+  const [values, setValues] = useState([]) //Array(originalChildren.length).fill(false)
   const [newChildren, setChildren] = useState(originalChildren);
  /////////////////////////////////////////////////
 
@@ -15,24 +15,24 @@ export default (originalChildren, allowMultiple = true) => {
     setChildren(newChildren => Children.map(newChildren, (child, idx) => {
       if (!isValidElement(child)) {return}
 
-      return cloneElement(child, {isExpanded: radioList[idx]})
+      if (child.props.isSelected && child.props.value) {
+        setValues([...values, chid.props.value])
+      }
+
+      if (!allowMultiple) {
+
+      }
+
+      return cloneElement(child, {isSelected:  })
     }));
     
-  }, [radioList])
+  }, [values])
+
 
 ///////////////////////////////////////////////////
 
-// Modifies the list that keeps track of what indexes are active
-const toggle = useCallback((targetIndex) => {
-  setRadioList(radioList => radioList.map((item, idx) => {
-    if (allowMultiple) {
-      return targetIndex == idx ? !item : item
-    } else {
-      return targetIndex == idx ? !item : false
-    }
-  }))
-}, [allowMultiple])
+// Modifies the list that keeps track of what indexes are activ
 
-  return { toggle, newChildren }
+  return newChildren
 
 }

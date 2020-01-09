@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { motion } from "framer-motion"
 import { system } from "styled-system"
 
-import Container from "../Container/Container"
+import Container from "../Container/FlexContainer"
 import ButtonGroup from "../Buttons/ButtonGroup"
 import Button from "../Buttons/Button"
 

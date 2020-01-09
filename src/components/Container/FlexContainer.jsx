@@ -10,7 +10,7 @@ import theme from "../../theme"
 
 /*
 To Do:
-
+    spacing system if explicit units are not specified
 Example:
 
 Desc:
@@ -21,26 +21,38 @@ Desc:
       Implements "Flexbox and minmax()", usually contains items that flow in one direction
 
 Props: 
-    w: array 
-    h: array
-    p: array (inset)
-    m: array
-    shadow?: String
-    data: Object
+   
     placeContent: 
+    gutter: 
 
 */
 
 
 
-export default ({ children }) => {
+export default ({ 
+    children, 
+    placeContent, 
+    direction, 
+    gutter 
+}) => {
+    let gutterVal = gutter ? gutter.replace(/[^\d.-]/g, '') : gutter
+    //let unit = gutter
+    // append the unit type
+    
+    const Container = styled(motion.div)`
+    border: 10px solid black;
+    display: flex;
+    flex-direction: ${direction || `row`}
+    place-content: ${placeContent || `center center`};
+    padding: ${+gutterVal/2 + `px`|| `1em`}
+
+    & > * {
+        flex: 1;
+        margin: ${+gutterVal/2 + `px` || `1em`};
+        border: 1px solid black;
+    }
+`
+
     return <Container> {children} </Container>
 }
 
-const Container = styled(motion.div)`
-    border: 1px solid black;
-    display: flex;
-    
-    place-content: center center;
-    
-`

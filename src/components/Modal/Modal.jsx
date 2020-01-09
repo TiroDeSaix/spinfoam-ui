@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { motion } from "framer-motion"
 
 import useLockBodyScroll from "../../fx/useLockBodyScroll"
-import Container from "../Container/Container"
+import Container from "../Container/FlexContainer"
 
 // Add default props 
 // 

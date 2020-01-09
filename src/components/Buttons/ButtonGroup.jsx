@@ -59,7 +59,7 @@ const defaultProps = {
 
 }
 
-export default (props) => {
+export default ({children, ...props}) => {
 
   if (props.connect) {
     Children.map(children, (child, i) => {

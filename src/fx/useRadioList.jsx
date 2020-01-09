@@ -16,14 +16,14 @@ export default (originalChildren, allowMultiple = true) => {
       if (!isValidElement(child)) {return}
 
       if (child.props.isSelected && child.props.value) {
-        setValues([...values, chid.props.value])
+        setValues([...values, child.props.value])
       }
 
       if (!allowMultiple) {
 
       }
 
-      return cloneElement(child, {isSelected:  })
+      return cloneElement(child)//, {isSelected:  })
     }));
     
   }, [values])

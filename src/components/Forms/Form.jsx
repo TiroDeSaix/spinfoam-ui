@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-import Container from "../Container/Container"
+import Container from "../Container/FlexContainer"
 
 
 // Add default props 

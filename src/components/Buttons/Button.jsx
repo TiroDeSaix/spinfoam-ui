@@ -2,9 +2,9 @@ import React, { useContext, useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import styled from "styled-components"
 import { ButtonContext } from "./ButtonGroup"
-import { dispatch } from "../../reducer"
+//import { dispatch } from "../../reducer"
 
-const {buttons} = useContext(ButtonContext)
+//const {buttons} = useContext(ButtonContext)
 
 /*
 
@@ -57,10 +57,10 @@ export default ({ text, link, bg, shadow, id}) => {
 
     
     return (
-        <Button     onClick={() => dispatch({type: "toggle", dest: id})} 
+        <Button     //onClick={() => dispatch({type: "toggle", dest: id})} 
                     href={link} 
                     style={{...baseStyles}}
-                    isSelected={buttons.id.isSelected}
+                    //isSelected={buttons.id.isSelected}
         > 
             {text} 
         </Button>

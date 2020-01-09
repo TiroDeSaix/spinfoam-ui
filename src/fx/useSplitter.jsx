@@ -1,1 +1,1 @@
-// Create example of randomly disappearing words on a word carousel
+// Implementation of split.js | depends on useDimensions()

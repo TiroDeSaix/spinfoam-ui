@@ -1,6 +1,8 @@
 import React, { useState, useReducer, useContext } from "react"
 import { actions } from "./constants"
 
+// on the fly containers based on simple ADD, REMOVE, UPDATE
+// with immer.js
 
 const initState = {
     byIds: {}
@@ -25,9 +27,6 @@ export default (state = initState, action) => {
             
         }
         case actions.update: {
-
-        }
-        case actions.toggle: {
 
         }
     }

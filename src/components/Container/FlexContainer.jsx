@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
-import { useSelector, useDispatch } from "react-redux"
-import useMedia from "../../fx/useMedia"
-import theme from "../../theme"
+// import { useSelector, useDispatch } from "react-redux"
+// import useMedia from "../../fx/useMedia"
+
 
 // Add default props 
 // 
@@ -31,28 +31,28 @@ Props:
 
 export default ({ 
     children, 
-    placeContent, 
-    direction, 
-    gutter 
+    placeContent = `center space-around`, 
+    direction = `row`, 
+    gutter = "1em",
+    w,
+    h
 }) => {
-    let gutterVal = gutter ? gutter.replace(/[^\d.-]/g, '') : gutter
-    //let unit = gutter
-    // append the unit type
-    
     const Container = styled(motion.div)`
-    border: 10px solid black;
+    border: 1px solid black;
+    text-align: center;
     display: flex;
-    flex-direction: ${direction || `row`}
-    place-content: ${placeContent || `center center`};
-    padding: ${+gutterVal/2 + `px`|| `1em`}
+    flex-direction: ${direction}
+    place-content: ${placeContent};
+    padding: calc(${gutter}/2);
+    width: ${w};
+    height: ${h};
 
     & > * {
         flex: 1;
-        margin: ${+gutterVal/2 + `px` || `1em`};
+        margin: calc(${gutter}/2);
         border: 1px solid black;
     }
 `
-
     return <Container> {children} </Container>
 }
 

@@ -1,4 +1,4 @@
-Library of components that have repetitively been implemented throughout many old Frontity projects and new SPAs. <br>
+Library of components that have repetitively been implemented throughout many old Gatsby projects and new SPAs. <br>
 
 #### "beta" branch (card #21)<br>
 Containers✔️<br>
